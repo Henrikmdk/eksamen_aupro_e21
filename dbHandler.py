@@ -4,7 +4,7 @@
 # Dens eneste formål er at lære sqlite3. Funktionaliteten i klassen laver en backup af mine test materialer i en
 # databasefil der hedder 'examen.db'. Der er ligeledes funktioner der kan lave objekter af typen Bog, Film, CD og
 # DRMLicens fra data i databasen. Hver gang mit program starter dumpes alle tabeller i databasen, oprettes på ny og
-# data fra listMaterialer kopieres ind igen.
+# data fra listMaterialer kopieres ind igen. TODO tilføj funktionalitet til komplet database baseret program
 # Imports
 import sqlite3
 from klasser import Bog, Film, CD, DRMLicens
@@ -17,11 +17,12 @@ class dbHandler:
         # Skaber forbindelse til databasen. Hvis den ikke eksisterer, bliver den oprettet
         self.conn = sqlite3.connect(self.dbNavn)
         self.cursor = self.conn.cursor()
-        # Sletter tabeller i databasen så jeg har en tom database at arbejde med til testdataen
-        self.cleanDB()
 
     # metode der laver database strukturen. Tabellerne afspejler mine klasser i klasser.py
     def makeStructure(self):
+        # Sletter tabeller i databasen så jeg har en tom database at arbejde med til testdataen
+        self.cleanDB()
+
         # opretter tabel BOG
         self.cursor.execute('''CREATE TABLE BOG
                             (ID INTEGER PRIMARY KEY NOT NULL,

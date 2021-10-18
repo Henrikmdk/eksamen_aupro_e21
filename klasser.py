@@ -1,6 +1,6 @@
 # Parent klasse. Indeholder de atributter der er fælles for alle klasser samt metoder der håndterer disse.
 # Jeg har tilføjet metoder til at lave SQL kode som jeg kan bruge i min dbHandler - klasse.
-import self as self
+# TODO tilføj funktionalitet til fuldt database baseret program
 class Materiale:
     def __init__(self, idnr, titel, antal, n_udlaan, reserverede, aarstal):
         self.idnr = idnr
