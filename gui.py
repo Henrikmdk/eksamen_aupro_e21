@@ -32,8 +32,6 @@ handler = dbHandler('examen.db')
 handler.makeStructure()
 # Opret test-data i db ved at itterere igennem vores listMaterialer. Parameter 'insert' fortæller metoden hvilken sql
 # der skal returneres
-for materiale in listMaterialer:
-    handler.runSQL(materiale.toSQL('insert'))
 
 
 class Application(Frame):
